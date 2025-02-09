@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valentine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1>Will you be my valentine?</h1>
+            <img id="valentineImage" src="me.jpg" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yessButton">Yes</button>
+            <button id="no">No</button>
+        </div>
+
+        <script>
+            document.getElementById("yessButton").addEventListener("click", showAlert);
+            
+            function showAlert() {
+                alert("I love you! see you soon <3");
+            }
+
+            var yessButton = document.getElementById("yessButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+
+            var noTexts = ["Are you sure?", "Please give me a chance CupCake", "CupCake please", "Don't do this to me :(", "I'm gonna cry"];
+            var imageSources = ["ayolah.jpg", "ayolah1.jpg", "pliss.jpg", "me.jpg"];
+
+            no.addEventListener("click", change);
+
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                var randomText = noTexts[randomIndex];
+                no.innerText = randomText;
+
+                var i = Math.floor(Math.random() * 1000) + 1;
+                var j = Math.floor(Math.random() * 700) + 1;
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+
+                var currentWidth = yessButton.offsetWidth;
+                var currentHeight = yessButton.offsetHeight
+                yessButton.style.width = currentWidth + 30 + "px";
+                yessButton.style.height = currentHeight + 10 + "px";
+
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+
+        </script>
+    </body>
+</html>
